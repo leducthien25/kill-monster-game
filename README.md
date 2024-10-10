@@ -62,5 +62,5 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 
 ## II. Thiết kế - KILL MONSTERS GAME.
 **Sơ đồ trình tự** được sử dụng để mô tả trình tự của các Message và luồng tương tác giữa các đối tượng trong một hệ thống.
-<p align="center"><img src="https://github.com/user-attachments/assets/cacbc87a-2fc5-454d-9470-c01f9202147a" alt="Mô tả hình ảnh"></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/115439bb-fe61-42e9-b97a-b5d203bd63b4" alt="Mô tả hình ảnh"></p>
 <p align="center"><strong><em>Hình 5:</em></strong> The sequence diagram.</p>
