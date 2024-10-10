@@ -64,3 +64,50 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 **Sơ đồ trình tự** được sử dụng để mô tả trình tự của các Message và luồng tương tác giữa các đối tượng trong một hệ thống.
 <p align="center"><img src="https://github.com/user-attachments/assets/115439bb-fe61-42e9-b97a-b5d203bd63b4" alt="Mô tả hình ảnh"></p>
 <p align="center"><strong><em>Hình 5:</em></strong> The sequence diagram.</p>
+
+### Ghi chú:
+**SCREEN_ENTRY:** Cài đặt các thiết lập ban đầu cho đối tượng trong game.
+- **Level setup:** Thiết lập thông số cấp độ cho game.
+- **AR_GAME_ARCHERY_SETUP:** Thiết lập thông số ban đầu cho đối tượng Archery
+- **AR_GAME_ARROW_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Arrow
+- **AR_GAME_METEOROID_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Meteoroid
+- **AR_GAME_BANG_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Bang
+- **AR_GAME_BORDER_SETUP:** Thiết lập thông số ban đầu cho đối tượng Border
+- **Setup timer - Time tick:** Khởi tạo Timer - Time tick cho game.
+- **STATE (GAME_ON):** Cập nhật trạng thái game -> GAME_ON
+
+**GAME PLAY:** Quá trình hoạt động của game.
+
+**GAME PLAY - Normal:** Game hoạt động ở trạng thái bình thường.
+- **AR_GAME_TIME_TICK:** Signal do Timer - Time tick gửi đến.
+- **AR_GAME_ARCHERY_UPDATE:** Cập nhật trạng thái Archery.
+- **AR_GAME_ARROW_RUN:** Cập nhật di chuyển của các Arrow theo thời gian.
+- **AR_GAME_METEOROID_RUN:** Cập nhật di chuyển của các Meteoroid theo thời gian.
+- **AR_GAME_METEOROID_DETONATOR:** Kiểm tra các Meteoroid có bị Arrow phá hủy.
+- **AR_GAME_BANG_UPDATE:** Cập nhật hoạt ảnh vụ nổ theo thời gian
+- **AR_GAME_BORDER_UPDATE:** Kiểm tra số điểm hiện tại để cập nhật tăng độ khó game.
+- **AR_GAME_CHECK_GAME_OVER:** Kiểm tra Meteoroid chạm vào Border. Nếu chạm vào thì gửi Signal - **AR_GAME_RESET** đến **Screen**.
+
+**GAME PLAY - Action:** Game hoạt động ở trạng thái có tác động của các nút nhấn.
+- **AR_GAME_ARCHERY_UP:** Player nhấn nút **[Up]** điều khiển Archery di chuyển lên.
+- **AR_GAME_ARCHERY_DOWN:** Player nhấn nút **[Down]** điều khiển Archery di chuyển xuống.
+- **AR_GAME_ARROW_SHOOT:** Player nhấn nút **[Mode]** điều khiển Archery bắn Arrow ra.
+
+**RESET GAME:** Quá trình cài đặt lại các thông số trước khi thoát game.
+- **STATE (GAME_OVER):** Cập nhật trạng thái game -> GAME_OVER
+- **AR_GAME_RESET:** Signal cài đặt lại game do Border gửi đến.
+- **AR_GAME_ARCHERY_RESET:** Cài đặt lại đối tượng Archery trước khi thoát.
+- **AR_GAME_ARROW_RESET:** Cài đặt lại đối tượng Arrow trước khi thoát.
+- **AR_GAME_METEOROID_RESET:** Cài đặt lại đối tượng Meteoroid trước khi thoát.
+- **AR_GAME_BANG_RESET:** Cài đặt lại đối tượng Bang trước khi thoát.
+- **AR_GAME_BORDER_RESET:** Cài đặt lại đối tượng Border trước khi thoát.
+- **Save and reset Score:** Lưu số điểm hiện tại và Cài đặt lại.
+- **Timer remove - Timer tick:** Xóa Timer - Time tick
+- **Setup timer - Timer exit:** Tạo 1 timer one shot để thoát game. Nhằm tạo ra một khoảng delay cho người chơi có thể nhận thức được là mình đã game over trước khi chuyển sang màn hình thông báo game over.
+
+**EXIT:** Thoát khỏi game và chuyển sang màn hình Game Over.
+- **AR_GAME_EXIT:** Signal do Timer exit gửi đến.
+- **STATE (GAME_OFF):** Cập nhật trạng thái game -> GAME_OFF
+- **Change the screen - SCREEN_TRAN(scr_game_over_handle, &scr_game_over):** Chuyển màn hình sang màn hình Game Over.
+
+### 2.2 Chi tiết
