@@ -111,3 +111,60 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 - **Change the screen - SCREEN_TRAN(scr_game_over_handle, &scr_game_over):** Chuyển màn hình sang màn hình Game Over.
 
 ### 2.2 Chi tiết
+
+Sau khi xác định được các đối tượng trong game mà chúng ta cần, tiếp theo chúng ta phải liệt kê ra các thuộc tính, các task, các signal và bitmap mà trong game sẽ sử dụng tới.
+Việc liệt kê càng chi tiết thì việc làm game diễn ra càng nhanh và tạo tình rõ ràng minh bạch cho phần tài nguyên giúp phần code game diễn ra suông sẻ hơn.
+
+#### 2.2.1 Thuộc tính đối tượng
+Việc liệt kê các thuộc tính của đối tượng trong game có các tác dụng quan trọng sau:
+- Giúp xác định rõ thông tin về đối tượng trong game.
+- Giúp xác định cấu trúc dữ liệu phù hợp để lưu trữ thông tin của đối tượng.
+- Khi bạn xác định trước các thuộc tính cần thiết, bạn giảm thiểu khả năng bỏ sót hoặc nhầm lẫn trong việc xử lý và sử dụng các thuộc tính.
+
+**Trạng thái** của một đối tượng được biểu diễn bởi các **thuộc tính**. Trong trò chơi này các đối tượng có các thuộc tính cụ thể là:
+- **visible:** Quy định hiển thị, ẩn/hiện của đối tượng.
+- **x, y:** Quy định vị trí của đối tượng trên màn hình.
+- **action_image:** Quy định hoạt ảnh tạo animation.
+
+Ví dụ:
+
+    typedef struct {
+        bool visible;
+        uint32_t x, y;
+        uint8_t action_image;
+        int8_t direction;
+        uint8_t hit_count;
+} ar_game_meteoroid_t;
+    extern ar_game_meteoroid_t meteoroid[NUM_METEOROIDS + NUM_METEOROIDS_III + GIFT + BOSS];
+
+**Áp dụng struct cho các đối tượng:**
+|struct|Các biến|
+|------|--------|
+|ar_game_archery_t|archery|
+|ar_game_arrow_t|arrow[MAX_NUM_ARROW]|
+|ar_game_bang_t|bang[NUM_BANG]|
+|ar_game_border_t|border|
+|ar_game_meteoroid_t|meteoroid[NUM_METEOROIDS]|
+
+**(*)** Các đối tượng có số lượng nhiều thì sẽ được khai báo dạng mảng.
+
+**Các biến quan trọng:**
+- **ar_game_score:** Điểm của trò chơi.
+- **ar_game_status:** Trạng thái quả trò chơi.
+  - GAME_OFF: Tắt .
+  - GAME_ON: Bật.
+  - GAME_OVER: Đã thua.
+
+- **ar_game_setting_t** settingsetup : Cấu hình cấp độ của trò chơi.
+  - settingsetup.silent : Bật/tắt chế độ im lặng.
+  - settingsetup.num_arrow : Cấu hình số lượng mũi tên.
+  - settingsetup.arrow_speed : Cấu hình tốc độ mũi tên.
+  - settingsetup.meteoroid_speed : Cấu hình tốc độ của thiên thạch.
+
+#### 2.2.2 Task
+Trong lập trình event-driven, task là một đơn vị độc lập đảm nhiệm một nhóm công việc nhất định. Khi hệ thống scheduler tìm thấy message liên quan đến task trong hàng đợi, hệ thống sẽ gọi hàm thực thi của task để xử lý message được gửi đến. Một số tác dụng quan trọng của task:
+- **Xử lý sự kiện:** Task được sử dụng để xử lý các message được bắn đến khi có sự kiện xảy ra. Mỗi task có thể được liên kết với một sự kiện cụ thể và thực thi một loạt các hành động khi sự kiện đó xảy ra.
+- **Đồng bộ hóa:** Task cung cấp cơ chế đồng bộ hóa cho việc xử lý các sự kiện. Khi một sự kiện xảy ra, task tương ứng được kích hoạt và thực thi. Các task khác sẽ đợi cho đến khi task hiện tại hoàn thành trước khi được kích hoạt. Điều này giúp đảm bảo rằng các hành động xử lý sự kiện được thực hiện theo một thứ tự nhất định và tránh xung đột.
+- **Quản lý luồng điều khiển:** Task cho phép quản lý luồng sự kiện trong ứng dụng event-driven. Bằng cách sử dụng task, bạn có thể xác định thứ tự thực thi của các hành động khi xảy ra các sự kiện khác nhau.
+- **Tách biệt logic:** Sử dụng task giúp tách biệt logic xử lý sự kiện, điều này giúp Source code rõ ràng, dễ đọc.
+- **Phân cấp nhiệm vụ:** Task level cho phép sắp xếp trình tự ưu tiên xử lý các message của task ở trong hàng đợi của hệ thống. Trong game các task level của game điều là 4 nên task nào được gọi trước sẽ xử lý trước. 
