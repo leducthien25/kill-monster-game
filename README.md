@@ -46,12 +46,12 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 - Ngoài ra, khi nhặt các Gift bằng cách bắn trúng Bullet thì sẽ được tăng thêm 1 Bullet dữ trữ hoặc có thể bắn ra 2 Bullet cùng 1 lúc trong 5 giây.
 
 #### 1.2.3 Cơ chế hoạt động:
-- **Cách tính điểm:** Điểm được tính bằng số lượng Monster  bị phá hủy. Mỗi Monster  bị phá hủy tương ứng với 10 điểm. Số điểm tích lũy được sẽ hiển thị ở góc dưới bên phải màn hình.
+- **Cách tính điểm:** Điểm được tính bằng số lượng Monster bị phá hủy. Mỗi Monster  bị phá hủy tương ứng với 10 điểm. Số điểm tích lũy được sẽ hiển thị ở góc dưới bên phải màn hình.
 - **Độ khó:** Mỗi khi tích lũy được 100 điểm, tốc độ bay của Monster sẽ tăng lên một cấp độ. Đồng thời lượng đạn cần bắn để tiêu diệt chúng cũng tăng lên. Độ khó ban đầu có thể cài đặt trong phần **Setting**.
 
 - **Giới hạn của Arrow:** Khi bắn thì số lượng Arrow hiện có sẽ giảm đi tương ứng số lượng Arrow đang bay, nếu Arrow hiện có giảm về "0" thì không thể bắn được và sẽ có âm thanh báo. Số lượng Arrow hiện có sẽ được hồi lại khi phá hủy được Meteoroid hoặc Arrow bay hết màn hình game. Số lượng Arrow được hiển thị ở góc dưới bên trái màn hình và có thể thay đổi trong phần **Setting**.
 
-- **Animation:** Để trò chơi thêm phần sinh động thì các đối tượng sẽ có thêm hoạt ảnh lúc di chuyển.
+- **Vật phảm quà:** Để giúp người chơi tiêu diệt Monsters nhanh hơn, vật phẩm quà giúp người chơi tiêu diệt Monsters dang tiến lại gần Border.
 
 - **Kết thúc trò chơi:** Khi Meteoroid chạm vào Border, trò chơi sẽ kết thúc. Các đối tượng sẽ được reset và số điểm sẽ được lưu. Bạn sẽ vào màn hình “Game Over” với 3 lựa chọn là:
   - **Restart:** chơi lại.
