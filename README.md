@@ -185,5 +185,5 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 ### 3.1 Archery
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/59594703-db7a-443a-95e5-304c8430619a" alt="archery sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/36db629f-1e23-4da3-a1bf-73c4c5cd00eb" width="640"/></p>
 <p align="center"><strong><em>Hình 8:</em></strong> Archery sequence</p>
