@@ -182,3 +182,8 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 **(*)** Tác dụng của các Signal trong game: xem tại Ghi chú - Hình 5
 
 ## III. Hướng dẫn chi tiết code trong đối tượng
+### 3.1 Archery
+**Sequence diagram:**
+
+<p align="center"><img src="https://github.com/user-attachments/assets/59594703-db7a-443a-95e5-304c8430619a" alt="archery sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 8:</em></strong> Archery sequence</p>
