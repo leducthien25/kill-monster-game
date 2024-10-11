@@ -113,7 +113,7 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 
 ### 2.2 Chi tiết
 
-Sau khi xác định được các đối tượng trong game mà chúng ta cần, tiếp theo chúng ta phải liệt kê ra các thuộc tính, các task, các signal và bitmap mà trong game sẽ sử dụng tới.
+Sau khi xác định được các đối tượng trong game, tiếp theo liệt kê ra các thuộc tính, các task, các signal và bitmap mà trong game sẽ sử dụng tới.
 Việc liệt kê càng chi tiết thì việc làm game diễn ra càng nhanh và tạo tình rõ ràng minh bạch cho phần tài nguyên giúp phần code game diễn ra suông sẻ hơn.
 
 #### 2.2.1 Thuộc tính đối tượng
@@ -158,9 +158,9 @@ Ví dụ:
 
 - **ar_game_setting_t** settingsetup : Cấu hình cấp độ của trò chơi.
   - settingsetup.silent : Bật/tắt chế độ im lặng.
-  - settingsetup.num_arrow : Cấu hình số lượng mũi tên.
-  - settingsetup.arrow_speed : Cấu hình tốc độ mũi tên.
-  - settingsetup.meteoroid_speed : Cấu hình tốc độ của thiên thạch.
+  - settingsetup.num_arrow : Cấu hình số lượng đạn.
+  - settingsetup.arrow_speed : Cấu hình tốc độ đạn
+  - settingsetup.meteoroid_speed : Cấu hình tốc độ của quái vật.
 
 #### 2.2.2 Task
 Trong lập trình event-driven, task là một yếu tố quan trọng giúp quản lý các sự kiện, luồng điều khiển, và đồng bộ hóa trong các hệ thống xử lý theo sự kiện, là một đơn vị độc lập đảm nhiệm một nhóm công việc nhất định. Khi hệ thống scheduler tìm thấy message liên quan đến task trong hàng đợi, hệ thống sẽ gọi hàm thực thi của task để xử lý message được gửi đến. Một số tác dụng quan trọng của task:
