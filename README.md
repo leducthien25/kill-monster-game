@@ -187,3 +187,14 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 
 <p align="center"><img src="https://github.com/user-attachments/assets/36db629f-1e23-4da3-a1bf-73c4c5cd00eb" width="640"/></p>
 <p align="center"><strong><em>Hình 8:</em></strong> Archery sequence</p>
+
+**Tóm tắt nguyên lý:** Archery sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
+- **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Archery như vị trí và hình ảnh.
+- **Giai đoạn 2:** Chơi game, trong giai đoạn này chia làm 2 hoạt động là:
+  - Cập nhật: Screen gửi Signal cập nhật cho Archery mỗi 100ms để cập nhật trạng thái hiện tại của Archery.
+  - Hành động: Button gửi Signal di chuyển lên/xuống cho Archery mỗi khi nhấn nút.
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Archery trước khi thoát game.
+
+**Code:**
+
+Trong code bạn có thể dùng macro để thay thế hàm void trong nhiều trường hợp.
