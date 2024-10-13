@@ -312,22 +312,6 @@ Khai báo: Thư viện, struct và biến.
 
 AR_GAME_ARROW_SETUP() là một macro được dùng định nghĩa để cài đặt trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt các giá trị của biến arrow và sử dụng các hằng số được định nghĩa trước khởi tạo tọa độ, trạng thái hiển thị và hình ảnh cho tất cả đạn trong trò chơi.
 
-    #define AR_GAME_ARCHERY_SETUP() \
-    do { \
-        archery.x = AXIS_X_ARCHERY; \
-        archery.y = AXIS_Y_ARCHERY; \
-        archery.visible = WHITE; \
-        archery.action_image = 1; \
-    } while (0);
-
-AR_GAME_ARCHERY_UP() là một macro được sử dụng để di chuyển súng lên trên. Nó giảm giá trị của archery_y bằng một giá trị STEP_ARCHERY_AXIS_Y và kiểm tra nếu giá trị mới bằng 0, nó được gán lại là 10.
-
-    #define AR_GAME_ARCHERY_UP() \
-    do { \
-        archery_y -= STEP_ARCHERY_AXIS_Y; \
-        if (archery_y == 0) {archery_y = 10;} \
-    } while(0);
-
     #define AR_GAME_ARROW_SETUP()  \
     do { \
         for (uint8_t i = 0; i < MAX_NUM_ARROW; i++) { \
@@ -337,60 +321,3 @@ AR_GAME_ARCHERY_UP() là một macro được sử dụng để di chuyển sún
             arrow[i].action_image = 1; \
         } \
     } while (0);
-
-AR_GAME_ARCHERY_DOWN() là một macro được sử dụng để di chuyển súng xuống dưới. Nó tăng giá trị của archery_y bằng một giá trị STEP_ARCHERY_AXIS_Y và kiểm tra nếu giá trị mới vượt quá 50, nó được gán lại là 50.
-
-    #define AR_GAME_ARCHERY_DOWN() \
-    do { \
-        archery_y += STEP_ARCHERY_AXIS_Y; \
-        if (archery_y > 50) {archery_y = 50;} \
-    } while(0);
-
-AR_GAME_ARCHERY_RESET() là một macro được sử dụng để đặt lại trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt lại giá trị của archery, archery_y và làm cho súng trở nên không hiển thị.
-
-    #define AR_GAME_ARCHERY_RESET() \
-    do { \
-        archery.x = AXIS_X_ARCHERY; \
-        archery.y = AXIS_Y_ARCHERY; \
-        archery.visible = BLACK; \
-        archery_y = AXIS_Y_ARCHERY; \
-    } while(0);
-
-Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messages) liên quan đến trò chơi cung bắn. Nó chứa một câu lệnh switch-case để xử lý các thông điệp khác nhau. Các thông điệp được gửi đến hàm này thông qua một tham số msg có kiểu dữ liệu ak_msg_t. Mỗi case trong switch-case xử lý một thông điệp cụ thể.
-
-    void ar_game_archery_handle(ak_msg_t* msg) {
-        switch (msg->sig) {
-        case AR_GAME_ARCHERY_SETUP: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_SETUP\n");
-            AR_GAME_ARCHERY_SETUP();
-        }
-            break;
-
-        case AR_GAME_ARCHERY_UPDATE: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_UPDATE\n");
-            archery.y = archery_y;
-        }
-            break;
-
-        case AR_GAME_ARCHERY_UP: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_UP\n");
-            AR_GAME_ARCHERY_UP();
-        }
-            break;
-
-        case AR_GAME_ARCHERY_DOWN: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_DOWN\n");
-            AR_GAME_ARCHERY_DOWN();
-        }
-            break;
-
-        case AR_GAME_ARCHERY_RESET: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_RESET\n");
-            AR_GAME_ARCHERY_RESET();
-        }
-            break;
-
-        default:
-            break;
-        }
-    }
