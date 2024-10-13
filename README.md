@@ -300,24 +300,50 @@ Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messa
   - Hành động: Button gửi Signal bắn tên cho Arrow mỗi khi nhấn nút. Arrow sẽ sẽ kiểm tra số mũi tên và nếu còn thì sẽ cập nhật trạng thái để bắn mũi tên ra tại vị trí hiện tại của Archery
 - **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Arrow trước khi thoát game.
 
-**Code:**
+**Code:** Tương tự Archery ở trên.
 
-Khai báo: Thư viện, struct và biến.
+### 3.3 Bang
 
-    #include "ar_game_arrow.h"
-    #include "ar_game_archery.h"
-    #include "scr_archery_game.h"
+**Sequence diagram:**
 
-    ar_game_arrow_t arrow[MAX_NUM_ARROW];
+<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/bang_sequence.webp" alt="bang sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 10:</em></strong> Bang sequence</p>
 
-AR_GAME_ARROW_SETUP() là một macro được dùng định nghĩa để cài đặt trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt các giá trị của biến arrow và sử dụng các hằng số được định nghĩa trước khởi tạo tọa độ, trạng thái hiển thị và hình ảnh cho tất cả đạn trong trò chơi.
+**Tóm tắt nguyên lý:** Bang sẽ nhận Signal thông được gửi từ Screen. Quá trình xử lý của đối tượng phân làm 3 giai đoạn:
+- **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Bang. Cho tất cả các bang về trạng thái lặn, không xuất hiện trên màn hình.
+- **Giai đoạn 2:** Chơi game, Vụ nổ chỉ xuất sau khi Monsters bị phá hủy. Vụ nổ bao gồm các hoạt ảnh được cập nhật sau mỗi 100ms sau 3 hoạt ảnh thì sẽ tự reset.
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Bullet trước khi thoát game.
 
-    #define AR_GAME_ARROW_SETUP()  \
-    do { \
-        for (uint8_t i = 0; i < MAX_NUM_ARROW; i++) { \
-            arrow[i].x = 0; \
-            arrow[i].y = 0; \
-            arrow[i].visible = BLACK; \
-            arrow[i].action_image = 1; \
-        } \
-    } while (0);
+**Code:** Tương tự Archery ở trên.
+
+### 3.4 Border
+
+**Sequence diagram:**
+
+<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/border_sequence.webp" alt="border sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 11:</em></strong> Border sequence</p>
+
+**Tóm tắt nguyên lý:** Border là 1 đối tượng bất động trong game. Có nhiệm vụ update level khi đến mốc điểm quy định và kiểm tra game over.
+- **Giai đoạn 1:** Bắt đầu game, cài đặt thông số vị trí và hiển thị của Border.
+- **Giai đoạn 2:** Chơi game, thực hiện các nhiệm vụ theo chu kỳ 100ms
+  - Kiểm tra số điểm nếu số điểm thêm 200 thì tăng tốc độ của Monsters.
+  - Kiểm tra vị trí của các Monsters nếu Monsters chạm vào Border thì gửi tín hiệu Reset đến Screen
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Border trước khi thoát game.
+
+**Code:** Tương tự Archery ở trên.
+
+###  3.5 Monsters.
+
+**Sequence diagram:**
+
+<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/meteoroid_sequence.webp" alt="meteoroid sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 12:</em></strong> Meteoroid sequence</p>
+
+**Tóm tắt nguyên lý:** Monsters là đối tượng xuất hiện và di chuyển liên tục trong game nhận signal từ Screen. Chia làm 3 giai đoạn:
+- **Giai đoạn 1:** Bắt đầu game, cài đặt thông số của Monsters. Cấp điểm xuất phát ngẫu nghiên cho Monsters, hiển thị lên màn hình.
+- **Giai đoạn 2:** Chơi game, thực hiện các nhiệm vụ theo chu kỳ 100ms
+  - Cập nhật vị trí và hoạt ảnh di chuyển cho Meteoroid
+  - Kiểm tra vị trí của các Bullet nếu Arrow chạm vào Monsters thì thực hiện reset Bullet và Monsters rồi tạo Bang.
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Monsters trước khi thoát game.
+
+**Code:** Tương tự Archery ở trên.
