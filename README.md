@@ -140,26 +140,26 @@ Ví dụ:
 **Áp dụng struct cho các đối tượng:**
 |struct|Các biến|
 |------|--------|
-|ar_game_archery_t|archery|
-|ar_game_arrow_t|arrow[MAX_NUM_ARROW]|
-|ar_game_bang_t|bang[NUM_BANG]|
+|km_game_gun_t|gun|
+|km_game_arrow_t|bullet[MAX_NUM_BULLET]|
+|km_game_bang_t|bang[NUM_BANG]|
 |ar_game_border_t|border|
-|ar_game_meteoroid_t|meteoroid[NUM_METEOROIDS]|
+|ar_game_monster_t|monster[NUM_MONSTER]|
 
 **(*)** Các đối tượng có số lượng nhiều thì sẽ được khai báo dạng mảng.
 
 **Các biến quan trọng:**
-- **ar_game_score:** Điểm của trò chơi.
-- **ar_game_status:** Trạng thái trò chơi.
+- **km_game_score:** Điểm của trò chơi.
+- **km_game_status:** Trạng thái trò chơi.
   - GAME_OFF: Tắt.
   - GAME_ON: Bật.
   - GAME_OVER: Đã thua.
 
-- **ar_game_setting_t** settingsetup : Cấu hình cấp độ của trò chơi.
+- **km_game_setting_t** settingsetup : Cấu hình cấp độ của trò chơi.
   - settingsetup.silent : Bật/tắt chế độ im lặng.
-  - settingsetup.num_arrow : Cấu hình số lượng đạn.
-  - settingsetup.arrow_speed : Cấu hình tốc độ đạn
-  - settingsetup.meteoroid_speed : Cấu hình tốc độ của quái vật.
+  - settingsetup.num_bullet : Cấu hình số lượng đạn.
+  - settingsetup.bullet_speed : Cấu hình tốc độ đạn
+  - settingsetup.monster_speed : Cấu hình tốc độ của quái vật.
 
 #### 2.2.2 Task
 Trong lập trình event-driven, task là một yếu tố quan trọng giúp quản lý các sự kiện, luồng điều khiển, và đồng bộ hóa trong các hệ thống xử lý theo sự kiện, là một đơn vị độc lập đảm nhiệm một nhóm công việc nhất định. Khi hệ thống scheduler tìm thấy message liên quan đến task trong hàng đợi, hệ thống sẽ gọi hàm thực thi của task để xử lý message được gửi đến. Một số tác dụng quan trọng của task:
@@ -178,20 +178,20 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 <p align="center"><img src="https://github.com/user-attachments/assets/e80ddfa8-6541-4788-b156-caec8412bdb3" alt="archery signals design" width="720"/></p>
 <p align="center"><strong><em>Hình 7:</em></strong> Bảng Signal của từng Task</p>
 
-**(*)** Tác dụng của các Signal trong game: xem tại Ghi chú - Hình 5
+**(*)** Tác dụng của các Signal trong game: xem tại Ghi chú - Hình 5.
 
-## III. Hướng dẫn chi tiết code trong đối tượng
-### 3.1 Archery
+## III. Hướng dẫn chi tiết code trong đối tượng.
+### 3.1 Gun.
 **Sequence diagram:**
 
 <p align="center"><img src="https://github.com/user-attachments/assets/36db629f-1e23-4da3-a1bf-73c4c5cd00eb" width="640"/></p>
-<p align="center"><strong><em>Hình 8:</em></strong> Archery sequence</p>
+<p align="center"><strong><em>Hình 8:</em></strong> Gun sequence.</p>
 
-**Tóm tắt nguyên lý:** Archery sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
-- **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Archery như vị trí và hình ảnh.
+**Tóm tắt nguyên lý:** Gun sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
+- **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Gun như vị trí và hình ảnh.
 - **Giai đoạn 2:** Chơi game, trong giai đoạn này chia làm 2 hoạt động là:
-  - Cập nhật: Screen gửi Signal cập nhật cho Archery mỗi 100ms để cập nhật trạng thái hiện tại của Archery.
-  - Hành động: Button gửi Signal di chuyển lên/xuống cho Archery mỗi khi nhấn nút.
+  - Cập nhật: Screen gửi Signal cập nhật cho Gun mỗi 100ms để cập nhật trạng thái hiện tại của Gun.
+  - Hành động: Button gửi Signal di chuyển lên/xuống cho Gun mỗi khi nhấn nút.
 - **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Archery trước khi thoát game.
 
 **Code:**
@@ -205,78 +205,78 @@ Trong code bạn có thể dùng macro để thay thế hàm void trong nhiều 
 
 Khai báo: Thư viện, struct và biến.
 
-    #include "ar_game_archery.h"
+    #include "km_game_gun.h"
 
-    ar_game_archery_t archery;
-    static uint32_t archery_y = AXIS_Y_ARCHERY;
+    km_game_gun_t gun;
+    static uint32_t gun_y = AXIS_Y_GUN;
 
-AR_GAME_ARCHERY_SETUP() là một macro được dùng định nghĩa để cài đặt trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt các giá trị của biến archery và sử dụng các hằng số được định nghĩa trước đó để thiết lập tọa độ, màu sắc và hình ảnh của súng.
+KM_GAME_GUN_SETUP() là một macro được dùng định nghĩa để cài đặt trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt các giá trị của biến gun và sử dụng các hằng số được định nghĩa trước đó để thiết lập tọa độ, màu sắc và hình ảnh của súng.
 
-    #define AR_GAME_ARCHERY_SETUP() \
+    #define KM_GAME_GUN_SETUP() \
     do { \
-        archery.x = AXIS_X_ARCHERY; \
-        archery.y = AXIS_Y_ARCHERY; \
-        archery.visible = WHITE; \
-        archery.action_image = 1; \
+        gun.x = AXIS_X_GUN; \
+        gun.y = AXIS_Y_GUN; \
+        gun.visible = WHITE; \
+        gun.action_image = 1; \
     } while (0);
 
-AR_GAME_ARCHERY_UP() là một macro được sử dụng để di chuyển súng lên trên. Nó giảm giá trị của archery_y bằng một giá trị STEP_ARCHERY_AXIS_Y và kiểm tra nếu giá trị mới bằng 0, nó được gán lại là 10.
+KM_GAME_GUN_UP() là một macro được sử dụng để di chuyển súng lên trên. Nó giảm giá trị của gun_y bằng một giá trị STEP_GUN_AXIS_Y và kiểm tra nếu giá trị mới bằng 0, nó được gán lại là 10.
 
-    #define AR_GAME_ARCHERY_UP() \
+    #define KM_GAME_GUN_UP() \
     do { \
-        archery_y -= STEP_ARCHERY_AXIS_Y; \
-        if (archery_y == 0) {archery_y = 10;} \
+        gun_y -= STEP_GUN_AXIS_Y; \
+        if (gun_y == 0) {gun_y = 10;} \
     } while(0);
 
-AR_GAME_ARCHERY_DOWN() là một macro được sử dụng để di chuyển súng xuống dưới. Nó tăng giá trị của archery_y bằng một giá trị STEP_ARCHERY_AXIS_Y và kiểm tra nếu giá trị mới vượt quá 50, nó được gán lại là 50.
+KM_GAME_GUN_DOWN() là một macro được sử dụng để di chuyển súng xuống dưới. Nó tăng giá trị của gun_y bằng một giá trị STEP_GUN_AXIS_Y và kiểm tra nếu giá trị mới vượt quá 50, nó được gán lại là 50.
 
-    #define AR_GAME_ARCHERY_DOWN() \
+    #define KM_GAME_GUN_DOWN() \
     do { \
-        archery_y += STEP_ARCHERY_AXIS_Y; \
-        if (archery_y > 50) {archery_y = 50;} \
+        gun_y += STEP_GUN_AXIS_Y; \
+        if (gun_y > 50) {gun_y = 50;} \
     } while(0);
 
-AR_GAME_ARCHERY_RESET() là một macro được sử dụng để đặt lại trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt lại giá trị của archery, archery_y và làm cho súng trở nên không hiển thị.
+KM_GAME_GUN_RESET() là một macro được sử dụng để đặt lại trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt lại giá trị của gun, gun_y và làm cho súng trở nên không hiển thị.
 
-    #define AR_GAME_ARCHERY_RESET() \
+    #define KM_GAME_GUN_RESET() \
     do { \
-        archery.x = AXIS_X_ARCHERY; \
-        archery.y = AXIS_Y_ARCHERY; \
-        archery.visible = BLACK; \
-        archery_y = AXIS_Y_ARCHERY; \
+        gun.x = AXIS_X_GUN; \
+        gun.y = AXIS_Y_GUN; \
+        gun.visible = BLACK; \
+        gun_y = AXIS_Y_GUN; \
     } while(0);
 
-Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messages) liên quan đến trò chơi cung bắn. Nó chứa một câu lệnh switch-case để xử lý các thông điệp khác nhau. Các thông điệp được gửi đến hàm này thông qua một tham số msg có kiểu dữ liệu ak_msg_t. Mỗi case trong switch-case xử lý một thông điệp cụ thể.
+Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages) liên quan đến trò chơi cung bắn. Nó chứa một câu lệnh switch-case để xử lý các thông điệp khác nhau. Các thông điệp được gửi đến hàm này thông qua một tham số msg có kiểu dữ liệu ak_msg_t. Mỗi case trong switch-case xử lý một thông điệp cụ thể.
 
-    void ar_game_archery_handle(ak_msg_t* msg) {
+    void km_game_gun_handle(ak_msg_t* msg) {
         switch (msg->sig) {
-        case AR_GAME_ARCHERY_SETUP: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_SETUP\n");
-            AR_GAME_ARCHERY_SETUP();
+        case KM_GAME_GUN_SETUP: {
+            APP_DBG_SIG("KM_GAME_GUN_SETUP\n");
+            KM_GAME_GUN_SETUP();
         }
             break;
 
-        case AR_GAME_ARCHERY_UPDATE: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_UPDATE\n");
-            archery.y = archery_y;
+        case KM_GAME_GUN_UPDATE: {
+            APP_DBG_SIG("KM_GAME_GUN_UPDATE\n");
+            gun.y = gun_y;
         }
             break;
 
-        case AR_GAME_ARCHERY_UP: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_UP\n");
-            AR_GAME_ARCHERY_UP();
+        case KM_GAME_GUN_UP: {
+            APP_DBG_SIG("KM_GAME_GUN_UP\n");
+            KM_GAME_GUN_UP();
         }
             break;
 
-        case AR_GAME_ARCHERY_DOWN: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_DOWN\n");
-            AR_GAME_ARCHERY_DOWN();
+        case KM_GAME_GUN_DOWN: {
+            APP_DBG_SIG("KM_GAME_GUN_DOWN\n");
+            KM_GAME_GUN_DOWN();
         }
             break;
 
-        case AR_GAME_ARCHERY_RESET: {
-            APP_DBG_SIG("AR_GAME_ARCHERY_RESET\n");
-            AR_GAME_ARCHERY_RESET();
+        case KM_GAME_GUN_RESET: {
+            APP_DBG_SIG("KM_GAME_GUN_RESET\n");
+            KM_GAME_GUN_RESET();
         }
             break;
 
@@ -285,7 +285,7 @@ Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messa
         }
     }
 
-### 3.2 Arrow
+### 3.2 Bullet.
 
 **Sequence diagram:**
 
