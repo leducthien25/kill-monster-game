@@ -169,7 +169,7 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 - **Tách biệt logic:** Task giúp tách biệt rõ ràng các phần logic xử lý sự kiện, điều này làm cho mã nguồn dễ hiểu và dễ bảo trì hơn. Mỗi task chỉ đảm nhận một nhóm công việc nhất định, giúp cho việc quản lý sự kiện trở nên trực quan, điều này giúp Source code rõ ràng, dễ đọc hơn.
 - **Phân cấp nhiệm vụ:** Các task trong hệ thống có thể được phân cấp theo mức độ ưu tiên, gọi là task level, giúp sắp xếp thứ tự xử lý các message trong hàng đợi một cách hợp lý. Nhờ đó, những công việc quan trọng sẽ được xử lý trước, trong khi các công việc ít quan trọng hơn sẽ được thực hiện sau. Trong game các task level của game đều là 4 và task nào được gọi trước sẽ được ưu tiên xử lý trước, đảm bảo trải nghiệm mượt mà.
 
-<p align="center"><img src="https://github.com/user-attachments/assets/5511c4dc-5600-4790-be8d-822d12999d89" alt="archery tasks design" width="720"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/939b7000-ab31-4746-90cb-9f9b2ba0a0ed" alt="archery tasks design" width="720"/></p>
 <p align="center"><strong><em>Hình 6:</em></strong> Bảng Task của các đối tượng</p>
 
 #### 2.2.3 Message & Signal
