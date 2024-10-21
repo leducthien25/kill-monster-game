@@ -320,30 +320,30 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/border_sequence.webp" alt="border sequence" width="640"/></p>
-<p align="center"><strong><em>Hình 11:</em></strong> Border sequence</p>
+<p align="center"><img src="https://github.com/user-attachments/assets/1dd2b59d-82ef-46d5-b568-bca398446a2e" alt="border sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 11:</em></strong> Border sequence.</p>
 
 **Tóm tắt nguyên lý:** Border là 1 đối tượng bất động trong game. Có nhiệm vụ update level khi đến mốc điểm quy định và kiểm tra game over.
 - **Giai đoạn 1:** Bắt đầu game, cài đặt thông số vị trí và hiển thị của Border.
 - **Giai đoạn 2:** Chơi game, thực hiện các nhiệm vụ theo chu kỳ 100ms
-  - Kiểm tra số điểm nếu số điểm thêm 200 thì tăng tốc độ của Monsters.
-  - Kiểm tra vị trí của các Monsters nếu Monsters chạm vào Border thì gửi tín hiệu Reset đến Screen
+  - Kiểm tra số điểm nếu số điểm thêm 200 thì tăng tốc độ của Monster.
+  - Kiểm tra vị trí của các Monster nếu Monster chạm vào Border thì gửi tín hiệu Reset đến Screen.
 - **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Border trước khi thoát game.
 
-**Code:** Tương tự Archery ở trên.
+**Code:** Tương tự Gun ở trên.
 
-###  3.5 Monsters.
+###  3.5 Monster.
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/meteoroid_sequence.webp" alt="meteoroid sequence" width="640"/></p>
-<p align="center"><strong><em>Hình 12:</em></strong> Meteoroid sequence</p>
+<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/meteoroid_sequence.webp" alt="monster sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 12:</em></strong> Monster sequence.</p>
 
-**Tóm tắt nguyên lý:** Monsters là đối tượng xuất hiện và di chuyển liên tục trong game nhận signal từ Screen. Chia làm 3 giai đoạn:
-- **Giai đoạn 1:** Bắt đầu game, cài đặt thông số của Monsters. Cấp điểm xuất phát ngẫu nghiên cho Monsters, hiển thị lên màn hình.
-- **Giai đoạn 2:** Chơi game, thực hiện các nhiệm vụ theo chu kỳ 100ms
-  - Cập nhật vị trí và hoạt ảnh di chuyển cho Meteoroid
-  - Kiểm tra vị trí của các Bullet nếu Arrow chạm vào Monsters thì thực hiện reset Bullet và Monsters rồi tạo Bang.
-- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Monsters trước khi thoát game.
+**Tóm tắt nguyên lý:** Monster là đối tượng xuất hiện và di chuyển liên tục trong game nhận signal từ Screen. Chia làm 3 giai đoạn:
+- **Giai đoạn 1:** Bắt đầu game, cài đặt thông số của Monster. Cấp điểm xuất phát ngẫu nghiên cho Monster, hiển thị lên màn hình.
+- **Giai đoạn 2:** Chơi game, thực hiện các nhiệm vụ theo chu kỳ 100ms:
+  - Cập nhật vị trí và hoạt ảnh di chuyển cho Monster.
+  - Kiểm tra vị trí của các Bullet nếu Bullet chạm vào Monster thì thực hiện reset Bullet và Monster rồi tạo Bang.
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Monster trước khi thoát game.
 
-**Code:** Tương tự Archery ở trên.
+**Code:** Tương tự Gun ở trên.
