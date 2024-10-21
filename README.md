@@ -51,7 +51,7 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 
 - **Giới hạn của Bullet:** Khi bắn thì số lượng Bullet hiện có sẽ giảm đi tương ứng số lượng Bullet đang bay, nếu Bullet hiện có giảm về "0" thì không thể bắn được và sẽ có âm thanh báo. Số lượng Bullet hiện có sẽ được hồi lại khi tiêu diệt được Monster hoặc Bullet bay hết màn hình game. Số lượng Bullet được hiển thị ở góc dưới bên trái màn hình và có thể thay đổi trong phần **Setting**.
 
-- **Vật phảm quà:** Để giúp người chơi tiêu diệt Monster nhanh hơn, vật phẩm quà giúp người chơi tiêu diệt Monster dang tiến lại gần Border.
+- **Vật phẩm quà:** Để giúp người chơi tiêu diệt Monster nhanh hơn, vật phẩm quà giúp người chơi tiêu diệt Monster dang tiến lại gần Border.
 
 - **Kết thúc trò chơi:** Khi Monster chạm vào Border, trò chơi sẽ kết thúc. Các đối tượng sẽ được reset và số điểm sẽ được lưu. Màn hình sẽ hiển thị “Game Over” với 3 lựa chọn là:
   - **Restart:** chơi lại.
