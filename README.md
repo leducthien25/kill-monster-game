@@ -336,7 +336,7 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/meteoroid_sequence.webp" alt="monster sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/67820abd-200f-4592-8143-e6dabc86323d" alt="monster sequence" width="640"/></p>
 <p align="center"><strong><em>Hình 12:</em></strong> Monster sequence.</p>
 
 **Tóm tắt nguyên lý:** Monster là đối tượng xuất hiện và di chuyển liên tục trong game nhận signal từ Screen. Chia làm 3 giai đoạn:
