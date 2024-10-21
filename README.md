@@ -184,7 +184,7 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 ### 3.1 Gun.
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/36db629f-1e23-4da3-a1bf-73c4c5cd00eb" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/c86604c0-17a2-4d5b-bc31-0aaab212c300" width="640"/></p>
 <p align="center"><strong><em>Hình 8:</em></strong> Gun sequence.</p>
 
 **Tóm tắt nguyên lý:** Gun sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
