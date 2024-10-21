@@ -2,7 +2,7 @@
 
 ## I. Giới thiệu
 
-Kill monster game là một tựa game chạy trên AK Embedded Base Kit. Được xây dựng nhằm mục đích giúp ta có thể tìm hiểu và thực hành về lập trình event – driven. Trong quá trình xây dựng nên archery game, ta sẽ hiểu thêm về cách thiết kế và ứng dụng UML, Task, Signal, Timer, Message, State-machine, …
+Kill monster game là một tựa game chạy trên AK Embedded Base Kit. Được xây dựng nhằm mục đích giúp ta có thể tìm hiểu và thực hành về lập trình event – driven. Trong quá trình xây dựng nên gun game, ta sẽ hiểu thêm về cách thiết kế và ứng dụng UML, Task, Signal, Timer, Message, State-machine, …
 
 ### 1.1 Phần cứng.
 
@@ -20,7 +20,7 @@ Phần mô tả sau đây về **“Kill monster game”**, giải thích cách 
 [Chèn menu game sau]
 
 Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn sau: 
-- **Archery Game:** Chọn vào để bắt đầu chơi game.
+- **Kill Monster Game:** Chọn vào để bắt đầu chơi game.
 - **Setting:** Chọn vào để cài đặt các thông số của game.
 - **Charts:** Chọn vào để xem top 3 điểm cao nhất đạt được.
 - **Exit:** Thoát menu vào màn hình chờ.
@@ -83,7 +83,7 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 - **KM_GAME_GUN_UPDATE:** Cập nhật trạng thái Gun.
 - **KM_GAME_BULLET_RUN:** Cập nhật di chuyển của các Bullet theo thời gian.
 - **KM_GAME_MONSTER_RUN:** Cập nhật di chuyển của các Monster theo thời gian.
-- **KM_GAME_MONSTER_DETONATOR:** Kiểm tra các Monster có bị Arrow phá hủy.
+- **KM_GAME_MONSTER_DETONATOR:** Kiểm tra các Monster có bị Bullet phá hủy.
 - **KM_GAME_BANG_UPDATE:** Cập nhật hoạt ảnh vụ nổ theo thời gian.
 - **KM_GAME_BORDER_UPDATE:** Kiểm tra số điểm hiện tại để cập nhật tăng độ khó game.
 - **KM_GAME_CHECK_GAME_OVER:** Kiểm tra Monster chạm vào Border. Nếu chạm vào thì gửi Signal - **KM_GAME_RESET** đến **Screen**.
@@ -141,7 +141,7 @@ Ví dụ:
 |struct|Các biến|
 |------|--------|
 |km_game_gun_t|gun|
-|km_game_arrow_t|bullet[MAX_NUM_BULLET]|
+|km_game_bullet_t|bullet[MAX_NUM_BULLET]|
 |km_game_bang_t|bang[NUM_BANG]|
 |ar_game_border_t|border|
 |ar_game_monster_t|monster[NUM_MONSTER]|
@@ -169,14 +169,14 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 - **Tách biệt logic:** Task giúp tách biệt rõ ràng các phần logic xử lý sự kiện, điều này làm cho mã nguồn dễ hiểu và dễ bảo trì hơn. Mỗi task chỉ đảm nhận một nhóm công việc nhất định, giúp cho việc quản lý sự kiện trở nên trực quan, điều này giúp Source code rõ ràng, dễ đọc hơn.
 - **Phân cấp nhiệm vụ:** Các task trong hệ thống có thể được phân cấp theo mức độ ưu tiên, gọi là task level, giúp sắp xếp thứ tự xử lý các message trong hàng đợi một cách hợp lý. Nhờ đó, những công việc quan trọng sẽ được xử lý trước, trong khi các công việc ít quan trọng hơn sẽ được thực hiện sau. Trong game các task level của game đều là 4 và task nào được gọi trước sẽ được ưu tiên xử lý trước, đảm bảo trải nghiệm mượt mà.
 
-<p align="center"><img src="https://github.com/user-attachments/assets/939b7000-ab31-4746-90cb-9f9b2ba0a0ed" alt="archery tasks design" width="720"/></p>
-<p align="center"><strong><em>Hình 6:</em></strong> Bảng Task của các đối tượng</p>
+<p align="center"><img src="https://github.com/user-attachments/assets/939b7000-ab31-4746-90cb-9f9b2ba0a0ed" alt="kill monster tasks design" width="720"/></p>
+<p align="center"><strong><em>Hình 6:</em></strong> Bảng Task của các đối tượng.</p>
 
 #### 2.2.3 Message & Signal
 **Message** được chia làm 2 loại chính, Message chỉ chứa Signal và Message vừa chứa Signal và Data. **Message** tương đương với **Signal**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/75b82494-4e10-43cc-b1cd-ed2b64dbc4f0" alt="archery signals design" width="720"/></p>
-<p align="center"><strong><em>Hình 7:</em></strong> Bảng Signal của từng Task</p>
+<p align="center"><img src="https://github.com/user-attachments/assets/75b82494-4e10-43cc-b1cd-ed2b64dbc4f0" alt="kill monster signals design" width="720"/></p>
+<p align="center"><strong><em>Hình 7:</em></strong> Bảng Signal của từng Task.</p>
 
 **(*)** Tác dụng của các Signal trong game: xem tại Ghi chú - Hình 5.
 
@@ -192,7 +192,7 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 - **Giai đoạn 2:** Chơi game, trong giai đoạn này chia làm 2 hoạt động là:
   - Cập nhật: Screen gửi Signal cập nhật cho Gun mỗi 100ms để cập nhật trạng thái hiện tại của Gun.
   - Hành động: Button gửi Signal di chuyển lên/xuống cho Gun mỗi khi nhấn nút.
-- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Archery trước khi thoát game.
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Gun trước khi thoát game.
 
 **Code:**
 
@@ -307,7 +307,7 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 **Sequence diagram:**
 
 <p align="center"><img src="https://github.com/user-attachments/assets/5492c582-29dd-4551-84f7-1042d0c48aad" alt="bang sequence" width="640"/></p>
-<p align="center"><strong><em>Hình 10:</em></strong> Bang sequence</p>
+<p align="center"><strong><em>Hình 10:</em></strong> Bang sequence.</p>
 
 **Tóm tắt nguyên lý:** Bang sẽ nhận Signal thông được gửi từ Screen. Quá trình xử lý của đối tượng phân làm 3 giai đoạn:
 - **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Bang. Cho tất cả các bang về trạng thái lặn, không xuất hiện trên màn hình.
