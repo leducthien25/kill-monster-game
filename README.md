@@ -175,7 +175,7 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 #### 2.2.3 Message & Signal
 **Message** được chia làm 2 loại chính, Message chỉ chứa Signal và Message vừa chứa Signal và Data. **Message** tương đương với **Signal**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/e80ddfa8-6541-4788-b156-caec8412bdb3" alt="archery signals design" width="720"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/75b82494-4e10-43cc-b1cd-ed2b64dbc4f0" alt="archery signals design" width="720"/></p>
 <p align="center"><strong><em>Hình 7:</em></strong> Bảng Signal của từng Task</p>
 
 **(*)** Tác dụng của các Signal trong game: xem tại Ghi chú - Hình 5.
