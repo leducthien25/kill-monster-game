@@ -184,7 +184,7 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 ### 3.1 Gun.
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/c86604c0-17a2-4d5b-bc31-0aaab212c300" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/1d54969d-db5e-4a8e-94e1-7003adb6f2a2" width="640"/></p>
 <p align="center"><strong><em>Hình 8:</em></strong> Gun sequence.</p>
 
 **Tóm tắt nguyên lý:** Gun sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
@@ -289,17 +289,18 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/8537eaa6-7710-4f27-9e94-c7f55bb2ab7c" alt="arrow sequence" width="640"/></p>
-<p align="center"><strong><em>Hình 9:</em></strong> Arrow sequence</p>
+<p align="center"><img src="https://github.com/user-attachments/assets/bc100193-5003-47d0-a60a-5887c835a9aa" alt="bullet sequence" width="640"/></p>
+<p align="center"><strong><em>Hình 9:</em></strong> Bullet sequence</p>
 
-**Tóm tắt nguyên lý:** Arrow sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
-- **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Arrow. Tất cả Arrow vào trạng thái lặn, không hiển thị trên màn hình.
+
+**Tóm tắt nguyên lý:** Bullet sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
+- **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Bullet. Tất cả Bullet vào trạng thái ẩn, không hiển thị trên màn hình.
 - **Giai đoạn 2:** Chơi game, trong giai đoạn này chia làm 2 hoạt động là:
-  - Cập nhật: Screen gửi Signal di chuyển cho Arrow mỗi 100ms để tăng trạng thái của Arrow tạo sự di chuyển cho Arrow.
-  - Hành động: Button gửi Signal bắn tên cho Arrow mỗi khi nhấn nút. Arrow sẽ sẽ kiểm tra số mũi tên và nếu còn thì sẽ cập nhật trạng thái để bắn mũi tên ra tại vị trí hiện tại của Archery
-- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Arrow trước khi thoát game.
+  - Cập nhật: Screen gửi Signal di chuyển cho Bullet mỗi 100ms để tăng trạng thái của Bullet tạo sự di chuyển cho Bullet.
+  - Hành động: Button gửi Signal bắn đạn cho Bullet mỗi khi nhấn nút. Bullet sẽ sẽ kiểm tra số đạn hiện có và nếu còn thì sẽ cập nhật trạng thái để bắn đạn ra tại vị trí hiện tại của Gun.
+- **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Bullet trước khi thoát game.
 
-**Code:** Tương tự Archery ở trên.
+**Code:** Tương tự Gun ở trên.
 
 ### 3.3 Bang
 
