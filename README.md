@@ -290,7 +290,7 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 **Sequence diagram:**
 
 <p align="center"><img src="https://github.com/user-attachments/assets/bc100193-5003-47d0-a60a-5887c835a9aa" alt="bullet sequence" width="640"/></p>
-<p align="center"><strong><em>Hình 9:</em></strong> Bullet sequence</p>
+<p align="center"><strong><em>Hình 9:</em></strong> Bullet sequence.</p>
 
 
 **Tóm tắt nguyên lý:** Bullet sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
@@ -302,21 +302,21 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 
 **Code:** Tương tự Gun ở trên.
 
-### 3.3 Bang
+### 3.3 Bang.
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/epcbtech/archery-game/blob/main/resources/images/sequence_object/bang_sequence.webp" alt="bang sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/5492c582-29dd-4551-84f7-1042d0c48aad" alt="bang sequence" width="640"/></p>
 <p align="center"><strong><em>Hình 10:</em></strong> Bang sequence</p>
 
 **Tóm tắt nguyên lý:** Bang sẽ nhận Signal thông được gửi từ Screen. Quá trình xử lý của đối tượng phân làm 3 giai đoạn:
 - **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Bang. Cho tất cả các bang về trạng thái lặn, không xuất hiện trên màn hình.
-- **Giai đoạn 2:** Chơi game, Vụ nổ chỉ xuất sau khi Monsters bị phá hủy. Vụ nổ bao gồm các hoạt ảnh được cập nhật sau mỗi 100ms sau 3 hoạt ảnh thì sẽ tự reset.
+- **Giai đoạn 2:** Chơi game, Vụ nổ chỉ xuất sau khi Monster bị phá hủy. Vụ nổ bao gồm các hoạt ảnh được cập nhật sau mỗi 100ms sau 3 hoạt ảnh thì sẽ tự reset.
 - **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Bullet trước khi thoát game.
 
-**Code:** Tương tự Archery ở trên.
+**Code:** Tương tự Gun ở trên.
 
-### 3.4 Border
+### 3.4 Border.
 
 **Sequence diagram:**
 
