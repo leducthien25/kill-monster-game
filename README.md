@@ -347,3 +347,25 @@ Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages)
 - **Giai đoạn 3:** Kết thúc game, thực hiện cài đặt lại trạng thái của Monster trước khi thoát game.
 
 **Code:** Tương tự Gun ở trên.
+
+## IV. Hiển thị và âm thanh trong trò chơi bắn cung
+### 4.1 Đồ họa
+
+Trong trò chơi, màn hình hiện thị là 1 màn hình **LCD OLed 1.3"** có kích thước là **128px*64px**. Nên các đối tượng được hiển thị trong game phải có kích thước hiển thị phù hợp với màn hình nên cần được thiết kế riêng. 
+
+Đồ họa được thiết kế từng phần theo từng đối tượng bằng phần mềm [Photopea](https://www.photopea.com/)
+
+#### 4.1.1 Thiết kế đồ họa cho các đối tượng
+
+<p align="center"><img src="https://github.com/user-attachments/assets/a2f97cf8-1666-4ce0-975a-ce995b2f4dc8" alt="kill monster game bitmap" width="720"/></p>
+<p align="center"><strong><em>Hình 13:</em></strong> Bitmap của các đối tượng.</p>
+
+**Bitmap** là một cấu trúc dữ liệu được sử dụng để lưu trữ và hiển thị hình ảnh trong game.
+
+**Animation** là ứng dụng việc nối ảnh của của nhiều ảnh liên tiếp tạo thành hoạt ảnh cho đổi tượng muốn miêu tả. Trong game, biến “action_image” trong đối tượng được sử dụng nối các ảnh theo thứ tự tạo thành animation.
+
+**Ghi chú:** Trong thiết kế trên có nhiều ảnh khác nhau cho cùng 1 đối tượng để tạo animation cho đối tượng đó nhằm tăng tính chân thật lúc chơi game.
+
+#### 4.1.2 Code
+
+**Archer display:**
