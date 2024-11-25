@@ -24,6 +24,7 @@ Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn 
 - **Setting:** Chọn vào để cài đặt các thông số của game.
 - **Charts:** Chọn vào để xem top 3 điểm cao nhất đạt được.
 - **Exit:** Thoát menu vào màn hình chờ.
+![image](https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417)
 
 [Chèn màn hình game lúc chơi game sau]
 
