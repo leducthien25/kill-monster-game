@@ -38,6 +38,7 @@ Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn 
 |**Ranh giới**|Border|Vùng an toàn phải bảo vệ không cho quái vật tiến tới.|
 |**Quái vật**|Monster|Vật thể bay về phía súng với tốc độ và độ khó tăng dần, có khả năng phá hủy ranh giới.|
 |**Quà**|Gift|Vật thể bay về phía súng, khi bị bắn trúng sẽ xóa bỏ hết quái trên màn hình.|
+|**Bom**|boom|Vật thể bay về phía súng, khi bị bắn trúng thì người chơi sẽ thua.|
 
 **(*)** Trong phần còn lại của tài liệu sẽ dùng tên của các đối tượng để đề cập đến đối tượng.
 
