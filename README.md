@@ -35,7 +35,7 @@ Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn 
 |**Vụ nổ**|Bang|Hiệu ứng xuất hiện khi quái vật bị hạ.|
 |**Ranh giới**|Border|Vùng an toàn phải bảo vệ không cho quái vật tiến tới.|
 |**Quái vật**|Monster|Vật thể bay về phía súng với tốc độ và độ khó tăng dần, có khả năng phá hủy ranh giới.|
-|**Quà**|Gift|Vật thể bay về phía súng, có khả năng tiêu diệt quái vật đang tiến tới.|
+|**Quà**|Gift|Vật thể bay về phía súng, khi bị bắn trúng sẽ xóa bỏ hết quái trên màn hình.|
 
 **(*)** Trong phần còn lại của tài liệu sẽ dùng tên của các đối tượng để đề cập đến đối tượng.
 
