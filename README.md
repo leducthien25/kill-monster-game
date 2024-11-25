@@ -17,14 +17,16 @@ KIT cũng tích hợp **RS485**, **NRF24L01+**, và **Flash** lên đến 32MB, 
 
 Phần mô tả sau đây về **“Kill monster game”**, giải thích cách chơi và cơ chế xử lý của trò chơi.
 
-[Chèn menu game sau]
+![image](https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417)
+<p align="center"><img src="https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417" alt="MENU TRÒ CHƠI"></p>
+<p align="center"><strong><em>Hình 2:</em></strong> MENU TRÒ CHƠI.</p>
 
 Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn sau: 
 - **Kill Monster Game:** Chọn vào để bắt đầu chơi game.
 - **Setting:** Chọn vào để cài đặt các thông số của game.
 - **Charts:** Chọn vào để xem top 3 điểm cao nhất đạt được.
 - **Exit:** Thoát menu vào màn hình chờ.
-![image](https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417)
+
 
 [Chèn màn hình game lúc chơi game sau]
 
