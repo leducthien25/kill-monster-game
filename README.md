@@ -59,7 +59,6 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
   - **Restart:** chơi lại.
   - **Charts:** vào xem bảng xếp hạng.
   - **Home:** về lại menu game.
-![image](https://github.com/user-attachments/assets/fa56b5cb-73a6-4b3f-80fc-afb0207ec82d)
 <p align="center"><img src="https://github.com/user-attachments/assets/fa56b5cb-73a6-4b3f-80fc-afb0207ec82d" alt="MÀN HÌNH GAME OVER"></p>
 <p align="center"><strong><em>Hình 3:</em></strong> MÀN HÌNH GAME OVER.</p>
 
