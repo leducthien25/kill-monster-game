@@ -17,7 +17,6 @@ KIT cũng tích hợp **RS485**, **NRF24L01+**, và **Flash** lên đến 32MB, 
 
 Phần mô tả sau đây về **“Kill monster game”**, giải thích cách chơi và cơ chế xử lý của trò chơi.
 
-![image](https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417)
 <p align="center"><img src="https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417" alt="MENU TRÒ CHƠI"></p>
 <p align="center"><strong><em>Hình 2:</em></strong> MENU TRÒ CHƠI.</p>
 
@@ -27,8 +26,8 @@ Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn 
 - **Charts:** Chọn vào để xem top 3 điểm cao nhất đạt được.
 - **Exit:** Thoát menu vào màn hình chờ.
 
-
-[Chèn màn hình game lúc chơi game sau]
+<p align="center"><img src="https://github.com/user-attachments/assets/d2625c61-7c25-4f12-b9c1-14cd66517b6e" alt="MÀN HÌNH GAME"></p>
+<p align="center"><strong><em>Hình 3:</em></strong> MÀN HÌNH GAME.</p>
 
 #### 1.2.1 Các đối tượng (Object) trong game.
 |Đối tượng|Tên đối tượng|Mô tả|
@@ -60,8 +59,9 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
   - **Restart:** chơi lại.
   - **Charts:** vào xem bảng xếp hạng.
   - **Home:** về lại menu game.
-
-[Chèn màn hình game over sau]
+![image](https://github.com/user-attachments/assets/fa56b5cb-73a6-4b3f-80fc-afb0207ec82d)
+<p align="center"><img src="https://github.com/user-attachments/assets/fa56b5cb-73a6-4b3f-80fc-afb0207ec82d" alt="MÀN HÌNH GAME OVER"></p>
+<p align="center"><strong><em>Hình 3:</em></strong> MÀN HÌNH GAME OVER.</p>
 
 ## II. Thiết kế - KILL MONSTER GAME.
 **Sơ đồ trình tự** được sử dụng để mô tả trình tự của các Message và luồng tương tác giữa các đối tượng trong một hệ thống.
