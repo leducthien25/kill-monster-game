@@ -1,4 +1,4 @@
-# Kill Monster Game - Build on AK Embedded Base Kit
+![Border sequence drawio](https://github.com/user-attachments/assets/e822e40b-5fc4-4d9f-a712-118fc62a1d94)# Kill Monster Game - Build on AK Embedded Base Kit
 
 ## I. Giới thiệu
 
@@ -187,7 +187,7 @@ Trong lập trình event-driven, task là một yếu tố quan trọng giúp qu
 ### 3.1 Gun.
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/1d54969d-db5e-4a8e-94e1-7003adb6f2a2" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/c24adb44-dcf2-4822-b823-709def12564e" width="640"/></p>
 <p align="center"><strong><em>Hình 8:</em></strong> Gun sequence.</p>
 
 **Tóm tắt nguyên lý:** Gun sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
@@ -292,9 +292,8 @@ Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messa
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/bc100193-5003-47d0-a60a-5887c835a9aa" alt="bullet sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/ef3686b0-a59f-4e75-ae14-420a5357ffc0" alt="bullet sequence" width="640"/></p>
 <p align="center"><strong><em>Hình 9:</em></strong> Bullet sequence.</p>
-
 
 **Tóm tắt nguyên lý:** Bullet sẽ nhận Signal thông được gửi từ 2 nguồn là Screen và Button. Quá trình xử lý của đối tượng phần làm 3 giai đoạn:
 - **Giai đoạn 1:** Bắt đầu game, cài đặt các thông số của Bullet. Tất cả Bullet vào trạng thái ẩn, không hiển thị trên màn hình.
@@ -309,7 +308,7 @@ Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messa
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/5492c582-29dd-4551-84f7-1042d0c48aad" alt="bang sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/4caa0f6c-85ab-4e45-9c1d-0ba4429fca3e" alt="bang sequence" width="640"/></p>
 <p align="center"><strong><em>Hình 10:</em></strong> Bang sequence.</p>
 
 **Tóm tắt nguyên lý:** Bang sẽ nhận Signal thông được gửi từ Screen. Quá trình xử lý của đối tượng phân làm 3 giai đoạn:
@@ -323,7 +322,7 @@ Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messa
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/1dd2b59d-82ef-46d5-b568-bca398446a2e" alt="border sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/00231537-dbbb-4ee3-93dd-b7ab88ebbba1" alt="border sequence" width="640"/></p>
 <p align="center"><strong><em>Hình 11:</em></strong> Border sequence.</p>
 
 **Tóm tắt nguyên lý:** Border là 1 đối tượng bất động trong game. Có nhiệm vụ update level khi đến mốc điểm quy định và kiểm tra game over.
@@ -339,7 +338,7 @@ Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messa
 
 **Sequence diagram:**
 
-<p align="center"><img src="https://github.com/user-attachments/assets/67820abd-200f-4592-8143-e6dabc86323d" alt="monster sequence" width="640"/></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/9f204c40-f40f-4081-bbfc-3737fa821e37" alt="monster sequence" width="640"/></p>
 <p align="center"><strong><em>Hình 12:</em></strong> Monster sequence.</p>
 
 **Tóm tắt nguyên lý:** Monster là đối tượng xuất hiện và di chuyển liên tục trong game nhận signal từ Screen. Chia làm 3 giai đoạn:
@@ -368,7 +367,3 @@ Trong trò chơi, màn hình hiện thị là 1 màn hình **LCD OLed 1.3"** có
 **Animation** là ứng dụng việc nối ảnh của của nhiều ảnh liên tiếp tạo thành hoạt ảnh cho đổi tượng muốn miêu tả. Trong game, biến “action_image” trong đối tượng được sử dụng nối các ảnh theo thứ tự tạo thành animation.
 
 **Ghi chú:** Trong thiết kế trên có nhiều ảnh khác nhau cho cùng 1 đối tượng để tạo animation cho đối tượng đó nhằm tăng tính chân thật lúc chơi game.
-
-#### 4.1.2 Code
-
-**Archer display:**
