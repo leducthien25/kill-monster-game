@@ -18,7 +18,7 @@ KIT cũng tích hợp **RS485**, **NRF24L01+**, và **Flash** lên đến 32MB, 
 Phần mô tả sau đây về **“Kill monster game”**, giải thích cách chơi và cơ chế xử lý của trò chơi.
 
 <p align="center"><img src="https://github.com/user-attachments/assets/4bb837f7-7427-4a96-b94c-8a4590cad417" alt="MENU TRÒ CHƠI"></p>
-<p align="center"><strong><em>Hình 2:</em></strong> MENU TRÒ CHƠI.</p>
+<p align="center"><strong><em>Hình 2:</em></strong> Menu game.</p>
 
 Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn sau: 
 - **Kill Monster Game:** Chọn vào để bắt đầu chơi game.
@@ -27,7 +27,7 @@ Trò chơi bắt đầu bằng màn hình **Menu game** với các lựa chọn 
 - **Exit:** Thoát menu vào màn hình chờ.
 
 <p align="center"><img src="https://github.com/user-attachments/assets/d2625c61-7c25-4f12-b9c1-14cd66517b6e" alt="MÀN HÌNH GAME"></p>
-<p align="center"><strong><em>Hình 3:</em></strong> MÀN HÌNH GAME.</p>
+<p align="center"><strong><em>Hình 3:</em></strong>Màn hình game.</p>
 
 #### 1.2.1 Các đối tượng (Object) trong game.
 |Đối tượng|Tên đối tượng|Mô tả|
