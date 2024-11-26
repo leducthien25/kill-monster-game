@@ -50,7 +50,8 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 
 #### 1.2.3 Cơ chế hoạt động.
 - **Cách tính điểm:** Điểm được tính bằng số lượng Monster bị phá hủy. Mỗi Monster bị tiêu diệt tương ứng với 10 điểm. Số điểm tích lũy được sẽ hiển thị ở góc dưới bên phải màn hình.
-- **Độ khó:** Mỗi khi tích lũy được 100 điểm, tốc độ bay của Monster sẽ tăng lên một cấp độ. Đồng thời lượng đạn cần bắn để tiêu diệt chúng cũng tăng lên. Độ khó ban đầu có thể cài đặt trong phần **Setting**.
+
+- **Độ khó:** Mỗi khi tích lũy được 100 điểm, tốc độ bay của Monster sẽ tăng lên một cấp độ. Đồng thời, xuất hiện thêm các Monster mới với lượng đạn cần bắn để tiêu diệt chúng là 2 viên. Độ khó ban đầu có thể cài đặt trong phần **Setting**.
 
 - **Giới hạn của Bullet:** Khi bắn thì số lượng Bullet hiện có sẽ giảm đi tương ứng số lượng Bullet đang bay, nếu Bullet hiện có giảm về "0" thì không thể bắn được và sẽ có âm thanh báo. Số lượng Bullet hiện có sẽ được hồi lại khi tiêu diệt được Monster hoặc Bullet bay hết màn hình game. Số lượng Bullet được hiển thị ở góc dưới bên trái màn hình và có thể thay đổi trong phần **Setting**.
 
