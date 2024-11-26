@@ -59,7 +59,7 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 
 - **Boom:** Để tăng thêm thử thách cho trò chơi, ngoài việc tiêu diệt Monster, người chơi cần cẩn thận tránh bắn trúng Boom. Nếu không may bắn trúng, trò chơi sẽ kết thúc ngay lập tức.
 
-- **Kết thúc trò chơi:** Khi Monster chạm vào Border, trò chơi sẽ kết thúc. Các đối tượng sẽ được reset và số điểm sẽ được lưu. Màn hình sẽ hiển thị “Game Over” với 3 lựa chọn là:
+- **Kết thúc trò chơi:** Khi Monster chạm vào Border và khi bán trúng Boom, trò chơi sẽ kết thúc. Các đối tượng sẽ được reset và số điểm sẽ được lưu. Màn hình sẽ hiển thị “Game Over” với 3 lựa chọn là:
   - **Restart:** chơi lại.
   - **Charts:** vào xem bảng xếp hạng.
   - **Home:** về lại menu game.
