@@ -71,45 +71,45 @@ Mục tiêu trò chơi là kiếm được càng nhiều điểm càng tốt, tr
 ### Ghi chú:
 **SCREEN_ENTRY:** Cài đặt các thiết lập ban đầu cho đối tượng trong game.
 - **Level setup:** Thiết lập thông số cấp độ cho game.
-- **KM_GAME_GUN_SETUP:** Thiết lập thông số ban đầu cho đối tượng Gun.
-- **KM_GAME_BULLET_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Bullet.
-- **KM_GAME_MONSTER_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Monster.
-- **KM_GAME_BANG_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Bang.
-- **KM_GAME_BORDER_SETUP:** Thiết lập thông số ban đầu cho đối tượng Border.
+- **AR_GAME_ARCHERY_SETUP:** Thiết lập thông số ban đầu cho đối tượng Gun.
+- **AR_GAME_ARROW_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Bullet.
+- **AR_GAME_MONSTER_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Monster.
+- **AR_GAME_BANG_SETUP:** Thiết lập thông số ban đầu cho các đối tượng Bang.
+- **AR_GAME_BORDER_SETUP:** Thiết lập thông số ban đầu cho đối tượng Border.
 - **Setup timer - Time tick:** Khởi tạo Timer - Time tick cho game.
 - **STATE (GAME_ON):** Cập nhật trạng thái game -> GAME_ON
 
 **GAME PLAY:** Quá trình hoạt động của game.
 
 **GAME PLAY - Normal:** Game hoạt động ở trạng thái bình thường.
-- **KM_GAME_TIME_TICK:** Signal do Timer - Time tick gửi đến.
-- **KM_GAME_GUN_UPDATE:** Cập nhật trạng thái Gun.
-- **KM_GAME_BULLET_RUN:** Cập nhật di chuyển của các Bullet theo thời gian.
-- **KM_GAME_MONSTER_RUN:** Cập nhật di chuyển của các Monster theo thời gian.
-- **KM_GAME_MONSTER_DETONATOR:** Kiểm tra các Monster có bị Bullet phá hủy.
-- **KM_GAME_BANG_UPDATE:** Cập nhật hoạt ảnh vụ nổ theo thời gian.
-- **KM_GAME_BORDER_UPDATE:** Kiểm tra số điểm hiện tại để cập nhật tăng độ khó game.
-- **KM_GAME_CHECK_GAME_OVER:** Kiểm tra Monster chạm vào Border. Nếu chạm vào thì gửi Signal - **KM_GAME_RESET** đến **Screen**.
+- **AR_GAME_TIME_TICK:** Signal do Timer - Time tick gửi đến.
+- **AR_GAME_ARCHERY_UPDATE:** Cập nhật trạng thái Gun.
+- **AR_GAME_ARROW_RUN:** Cập nhật di chuyển của các Bullet theo thời gian.
+- **AR_GAME_MONSTER_RUN:** Cập nhật di chuyển của các Monster theo thời gian.
+- **AR_GAME_MONSTER_DETONATOR:** Kiểm tra các Monster có bị Bullet phá hủy.
+- **AR_GAME_BANG_UPDATE:** Cập nhật hoạt ảnh vụ nổ theo thời gian.
+- **AR_GAME_BORDER_UPDATE:** Kiểm tra số điểm hiện tại để cập nhật tăng độ khó game.
+- **AR_GAME_CHECK_GAME_OVER:** Kiểm tra Monster chạm vào Border. Nếu chạm vào thì gửi Signal - **AR_GAME_RESET** đến **Screen**.
 
 **GAME PLAY - Action:** Game hoạt động ở trạng thái có tác động của các nút nhấn.
-- **KM_GAME_GUN_UP:** Player nhấn nút **[Up]** điều khiển Gun di chuyển lên.
-- **KM_GAME_GUN_DOWN:** Player nhấn nút **[Down]** điều khiển Bullet di chuyển xuống.
-- **KM_GAME_BULLET_SHOOT:** Player nhấn nút **[Mode]** điều khiển Gun bắn Bullet ra.
+- **AR_GAME_ARCHERY_UP:** Player nhấn nút **[Up]** điều khiển Gun di chuyển lên.
+- **AR_GAME_ARCHERY_DOWN:** Player nhấn nút **[Down]** điều khiển Bullet di chuyển xuống.
+- **AR_GAME_ARROW_SHOOT:** Player nhấn nút **[Mode]** điều khiển Gun bắn Bullet ra.
 
 **RESET GAME:** Quá trình cài đặt lại các thông số trước khi thoát game.
 - **STATE (GAME_OVER):** Cập nhật trạng thái game -> GAME_OVER.
-- **KM_GAME_RESET:** Signal cài đặt lại game do Border gửi đến.
-- **KM_GAME_GUN_RESET:** Cài đặt lại đối tượng Gun trước khi thoát.
-- **KM_GAME_BULLET_RESET:** Cài đặt lại đối tượng Bullet trước khi thoát.
-- **KM_GAME_MONSTER_RESET:** Cài đặt lại đối tượng Monster trước khi thoát.
-- **KM_GAME_BANG_RESET:** Cài đặt lại đối tượng Bang trước khi thoát.
-- **KM_GAME_BORDER_RESET:** Cài đặt lại đối tượng Border trước khi thoát.
+- **AR_GAME_RESET:** Signal cài đặt lại game do Border gửi đến.
+- **AR_GAME_ARCHERY_RESET:** Cài đặt lại đối tượng Gun trước khi thoát.
+- **AR_GAME_ARROW_RESET:** Cài đặt lại đối tượng Bullet trước khi thoát.
+- **AR_GAME_MONSTER_RESET:** Cài đặt lại đối tượng Monster trước khi thoát.
+- **AR_GAME_BANG_RESET:** Cài đặt lại đối tượng Bang trước khi thoát.
+- **AR_GAME_BORDER_RESET:** Cài đặt lại đối tượng Border trước khi thoát.
 - **Save and reset Score:** Lưu số điểm hiện tại và Cài đặt lại.
 - **Timer remove - Timer tick:** Xóa Timer - Time tick.
 - **Setup timer - Timer exit:** Tạo 1 timer one shot để thoát game. Nhằm tạo ra một khoảng delay cho người chơi có thể nhận thức được là mình đã game over trước khi chuyển sang màn hình thông báo game over.
 
 **EXIT:** Thoát khỏi game và chuyển sang màn hình Game Over.
-- **KM_GAME_EXIT:** Signal do Timer exit gửi đến.
+- **AR_GAME_EXIT:** Signal do Timer exit gửi đến.
 - **STATE (GAME_OFF):** Cập nhật trạng thái game -> GAME_OFF
 - **Change the screen - SCREEN_TRAN(scr_game_over_handle, &scr_game_over):** Chuyển màn hình sang màn hình Game Over.
 
@@ -137,31 +137,31 @@ Ví dụ:
         uint8_t action_image;
         int8_t direction;
         uint8_t hit_count;
-        } km_game_monster_t;
-        extern km_game_monster_t monster[NUM_MONSTER + NUM_MONSTER_III + GIFT + BOSS];
+        } ar_game_monster_t;
+        extern ar_game_monster_t monster[NUM_MONSTER + NUM_MONSTER_III + GIFT + BOSS];
 
 **Áp dụng struct cho các đối tượng:**
 |struct|Các biến|
 |------|--------|
-|km_game_gun_t|gun|
-|km_game_bullet_t|bullet[MAX_NUM_BULLET]|
-|km_game_bang_t|bang[NUM_BANG]|
+|ar_game_archery_t|gun|
+|ar_game_arrow_t|bullet[MAX_NUM_ARROW]|
+|ar_game_bang_t|bang[NUM_BANG]|
 |ar_game_border_t|border|
 |ar_game_monster_t|monster[NUM_MONSTER]|
 
 **(*)** Các đối tượng có số lượng nhiều thì sẽ được khai báo dạng mảng.
 
 **Các biến quan trọng:**
-- **km_game_score:** Điểm của trò chơi.
-- **km_game_status:** Trạng thái trò chơi.
+- **ar_game_score:** Điểm của trò chơi.
+- **ar_game_status:** Trạng thái trò chơi.
   - GAME_OFF: Tắt.
   - GAME_ON: Bật.
   - GAME_OVER: Đã thua.
 
-- **km_game_setting_t** settingsetup : Cấu hình cấp độ của trò chơi.
+- **ar_game_setting_t** settingsetup : Cấu hình cấp độ của trò chơi.
   - settingsetup.silent : Bật/tắt chế độ im lặng.
-  - settingsetup.num_bullet : Cấu hình số lượng đạn.
-  - settingsetup.bullet_speed : Cấu hình tốc độ đạn
+  - settingsetup.num_arrow : Cấu hình số lượng đạn.
+  - settingsetup.arrow_speed : Cấu hình tốc độ đạn
   - settingsetup.monster_speed : Cấu hình tốc độ của quái vật.
 
 #### 2.2.2 Task
@@ -208,78 +208,78 @@ Trong code bạn có thể dùng macro để thay thế hàm void trong nhiều 
 
 Khai báo: Thư viện, struct và biến.
 
-    #include "km_game_gun.h"
+    #include "ar_game_archery.h"
 
-    km_game_gun_t gun;
-    static uint32_t gun_y = AXIS_Y_GUN;
+    ar_game_archery_t archery;
+    static uint32_t archery_y = AXIS_Y_ARCHERY;
 
-KM_GAME_GUN_SETUP() là một macro được dùng định nghĩa để cài đặt trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt các giá trị của biến gun và sử dụng các hằng số được định nghĩa trước đó để thiết lập tọa độ, màu sắc và hình ảnh của súng.
+ar_GAME_ARCHERY_SETUP() là một macro được dùng định nghĩa để cài đặt trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt các giá trị của biến gun và sử dụng các hằng số được định nghĩa trước đó để thiết lập tọa độ, màu sắc và hình ảnh của súng.
 
-    #define KM_GAME_GUN_SETUP() \
+    #define ar_GAME_ARCHERY_SETUP() \
     do { \
-        gun.x = AXIS_X_GUN; \
-        gun.y = AXIS_Y_GUN; \
-        gun.visible = WHITE; \
-        gun.action_image = 1; \
+        archery.x = AXIS_X_ARCHERY; \
+        archery.y = AXIS_Y_ar; \
+        archery.visible = WHITE; \
+        archery.action_image = 1; \
     } while (0);
 
-KM_GAME_GUN_UP() là một macro được sử dụng để di chuyển súng lên trên. Nó giảm giá trị của gun_y bằng một giá trị STEP_GUN_AXIS_Y và kiểm tra nếu giá trị mới bằng 0, nó được gán lại là 10.
+AR_GAME_ar_UP() là một macro được sử dụng để di chuyển súng lên trên. Nó giảm giá trị của archery_y bằng một giá trị STEP_ar_AXIS_Y và kiểm tra nếu giá trị mới bằng 0, nó được gán lại là 10.
 
-    #define KM_GAME_GUN_UP() \
+    #define AR_GAME_ar_UP() \
     do { \
-        gun_y -= STEP_GUN_AXIS_Y; \
-        if (gun_y == 0) {gun_y = 10;} \
+        archery_y -= STEP_ar_AXIS_Y; \
+        if (archery_y == 0) {archery_y = 10;} \
     } while(0);
 
-KM_GAME_GUN_DOWN() là một macro được sử dụng để di chuyển súng xuống dưới. Nó tăng giá trị của gun_y bằng một giá trị STEP_GUN_AXIS_Y và kiểm tra nếu giá trị mới vượt quá 50, nó được gán lại là 50.
+ar_GAME_ar_DOWN() là một macro được sử dụng để di chuyển súng xuống dưới. Nó tăng giá trị của archery_y bằng một giá trị STEP_ar_AXIS_Y và kiểm tra nếu giá trị mới vượt quá 50, nó được gán lại là 50.
 
-    #define KM_GAME_GUN_DOWN() \
+    #define ar_GAME_ar_DOWN() \
     do { \
-        gun_y += STEP_GUN_AXIS_Y; \
-        if (gun_y > 50) {gun_y = 50;} \
+        archery_y += STEP_ar_AXIS_Y; \
+        if (archery_y > 50) {archery_y = 50;} \
     } while(0);
 
-KM_GAME_GUN_RESET() là một macro được sử dụng để đặt lại trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt lại giá trị của gun, gun_y và làm cho súng trở nên không hiển thị.
+AR_GAME_ar_RESET() là một macro được sử dụng để đặt lại trạng thái ban đầu của trò chơi tiêu diệt quái vật. Nó đặt lại giá trị của archery, archery_y và làm cho súng trở nên không hiển thị.
 
-    #define KM_GAME_GUN_RESET() \
+    #define AR_GAME_ar_RESET() \
     do { \
-        gun.x = AXIS_X_GUN; \
-        gun.y = AXIS_Y_GUN; \
-        gun.visible = BLACK; \
-        gun_y = AXIS_Y_GUN; \
+        archery.x = AXIS_X_ar; \
+        archery.y = AXIS_Y_ar; \
+        archery.visible = BLACK; \
+        archery_y = AXIS_Y_ar; \
     } while(0);
 
-Hàm km_game_gun_handle() là một hàm xử lý các thông điệp (messages) liên quan đến trò chơi cung bắn. Nó chứa một câu lệnh switch-case để xử lý các thông điệp khác nhau. Các thông điệp được gửi đến hàm này thông qua một tham số msg có kiểu dữ liệu ak_msg_t. Mỗi case trong switch-case xử lý một thông điệp cụ thể.
+Hàm ar_game_archery_handle() là một hàm xử lý các thông điệp (messages) liên quan đến trò chơi cung bắn. Nó chứa một câu lệnh switch-case để xử lý các thông điệp khác nhau. Các thông điệp được gửi đến hàm này thông qua một tham số msg có kiểu dữ liệu ak_msg_t. Mỗi case trong switch-case xử lý một thông điệp cụ thể.
 
-    void km_game_gun_handle(ak_msg_t* msg) {
+    void ar_game_archery_handle(ak_msg_t* msg) {
         switch (msg->sig) {
-        case KM_GAME_GUN_SETUP: {
-            APP_DBG_SIG("KM_GAME_GUN_SETUP\n");
-            KM_GAME_GUN_SETUP();
+        case AR_GAME_ar_SETUP: {
+            APP_DBG_SIG("AR_GAME_ar_SETUP\n");
+            AR_GAME_ar_SETUP();
         }
             break;
 
-        case KM_GAME_GUN_UPDATE: {
-            APP_DBG_SIG("KM_GAME_GUN_UPDATE\n");
-            gun.y = gun_y;
+        case AR_GAME_ar_UPDATE: {
+            APP_DBG_SIG("AR_GAME_ar_UPDATE\n");
+            archery.y = ar_y;
         }
             break;
 
-        case KM_GAME_GUN_UP: {
-            APP_DBG_SIG("KM_GAME_GUN_UP\n");
-            KM_GAME_GUN_UP();
+        case AR_GAME_ARCHERY_UP: {
+            APP_DBG_SIG("AR_GAME_ARCHERY_UP\n");
+            AR_GAME_ARCHERY_UP();
         }
             break;
 
-        case KM_GAME_GUN_DOWN: {
-            APP_DBG_SIG("KM_GAME_GUN_DOWN\n");
-            KM_GAME_GUN_DOWN();
+        case AR_GAME_ARCHERY_DOWN: {
+            APP_DBG_SIG("AR_GAME_ARCHERY_DOWN\n");
+            AR_GAME_ARCHERY_DOWN();
         }
             break;
 
-        case KM_GAME_GUN_RESET: {
-            APP_DBG_SIG("KM_GAME_GUN_RESET\n");
-            KM_GAME_GUN_RESET();
+        case AR_GAME_ARCHERY_RESET: {
+            APP_DBG_SIG("AR_GAME_ARCHERY_RESET\n");
+            AR_GAME_ARCHERY_RESET();
         }
             break;
 
