@@ -1,5 +1,3 @@
-![Border sequence drawio](https://github.com/user-attachments/assets/e822e40b-5fc4-4d9f-a712-118fc62a1d94)# Kill Monster Game - Build on AK Embedded Base Kit
-
 ## I. Giới thiệu
 
 Kill monster game là một tựa game chạy trên AK Embedded Base Kit. Được xây dựng nhằm mục đích giúp ta có thể tìm hiểu và thực hành về lập trình event – driven. Trong quá trình xây dựng nên gun game, ta sẽ hiểu thêm về cách thiết kế và ứng dụng UML, Task, Signal, Timer, Message, State-machine, …
